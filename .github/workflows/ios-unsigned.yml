@@ -1,0 +1,56 @@
+{
+  "name": "Build unsigned iPhone CameraShell",
+  "on": {
+    "workflow_dispatch": {}
+  },
+  "permissions": {
+    "contents": "read"
+  },
+  "jobs": {
+    "unsigned-ipa": {
+      "runs-on": "macos-15",
+      "timeout-minutes": 30,
+      "steps": [
+        {
+          "name": "Checkout",
+          "uses": "actions/checkout@v4",
+          "with": {
+            "persist-credentials": false
+          }
+        },
+        {
+          "name": "Locate standalone or nested shell",
+          "id": "locate",
+          "shell": "bash",
+          "run": "if [[ -f CameraShell.xcodeproj/project.pbxproj ]]; then\n  echo \"root=.\" >> \"$GITHUB_OUTPUT\"\nelif [[ -f ios-shell/CameraShell.xcodeproj/project.pbxproj ]]; then\n  echo \"root=ios-shell\" >> \"$GITHUB_OUTPUT\"\nelif [[ -f iphone-camera-pwa/ios-shell/CameraShell.xcodeproj/project.pbxproj ]]; then\n  echo \"root=iphone-camera-pwa/ios-shell\" >> \"$GITHUB_OUTPUT\"\nelse\n  echo \"CameraShell.xcodeproj not found\" >&2\n  exit 1\nfi\n"
+        },
+        {
+          "name": "Check, test and archive without signing",
+          "working-directory": "${{ steps.locate.outputs.root }}",
+          "run": "bash scripts/build-unsigned.sh"
+        },
+        {
+          "name": "Upload unsigned IPA and checksum",
+          "uses": "actions/upload-artifact@v4",
+          "with": {
+            "name": "CameraShell-unsigned-${{ github.run_number }}",
+            "path": "${{ steps.locate.outputs.root }}/build/unsigned.*/CameraShell-unsigned.ipa\n${{ steps.locate.outputs.root }}/build/unsigned.*/CameraShell-unsigned.ipa.sha256",
+            "if-no-files-found": "error",
+            "retention-days": 7
+          }
+        },
+        {
+          "name": "Upload build evidence",
+          "if": "always()",
+          "uses": "actions/upload-artifact@v4",
+          "with": {
+            "name": "CameraShell-build-evidence-${{ github.run_number }}",
+            "path": "${{ steps.locate.outputs.root }}/build/unsigned.*/*.log\n${{ steps.locate.outputs.root }}/build/unsigned.*/*version.txt\n${{ steps.locate.outputs.root }}/validation-report.json",
+            "if-no-files-found": "warn",
+            "retention-days": 7
+          }
+        }
+      ]
+    }
+  }
+}

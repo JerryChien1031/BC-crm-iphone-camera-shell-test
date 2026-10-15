@@ -1,0 +1,11 @@
+.DS_Store
+build/
+build-policy-tests.*/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.ipa
+*.p12
+*.mobileprovision
+__pycache__/
+validation-report.json

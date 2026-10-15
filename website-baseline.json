@@ -1,0 +1,66 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256": "3a0cfc1c3a799769c1f5f90824a75396b7d791db1c45048e6b75eebf9c0c97a0"
+  },
+  {
+    "path": "app.py",
+    "sha256": "9a02ba1990150a5d79a8f88925530872d5e2d9dbde2d7dcac4ed852eefd60700"
+  },
+  {
+    "path": "README.md",
+    "sha256": "be9558b22aec2eac9e99e0243ba889c32abda92ea66c71a8dde8fa047993b5a6"
+  },
+  {
+    "path": "requirements.txt",
+    "sha256": "35fde835d2cdf4ccbfb67738c7e5d2f8829fd441d3cbcb34b1f4c948a0a11cd4"
+  },
+  {
+    "path": "start-dev.cmd",
+    "sha256": "d4da29048fd70e1e743ebf6eb12c37b8b73dd1747a460d16d958fa9df4ed4d0f"
+  },
+  {
+    "path": "scripts/generate_icons.py",
+    "sha256": "ecc12937eb8abe8911e2b388f5cf1dfd28935d491cdae9931361e626c30e901c"
+  },
+  {
+    "path": "static/app.js",
+    "sha256": "5835e2b034121dcbc1b55f8a389d9a6c9272443ce4d6c411bb882b21fe86e809"
+  },
+  {
+    "path": "static/manifest.webmanifest",
+    "sha256": "1eaad9d786f9e45f5c7d93d40783daa67c521bfefcbf5e7197111e906b2a0639"
+  },
+  {
+    "path": "static/styles.css",
+    "sha256": "1b88da5116d05d3bce6021401cdb560060ab6f90fe3eec01b6db1a6344930c51"
+  },
+  {
+    "path": "static/icons/icon-180.png",
+    "sha256": "2ebe55a9c5e7830109a74fcae3e0223c55548e8c33ee913bcadebe227e8b55be"
+  },
+  {
+    "path": "static/icons/icon-192.png",
+    "sha256": "09e7127fae3fddf5147cd6b2cbfef0f561b2b71c942f9d8f77593b51336dc34c"
+  },
+  {
+    "path": "static/icons/icon-512.png",
+    "sha256": "d378ce769364c18efd924b1d823d388768adb7d4a103d761008e4dc62c88e9ac"
+  },
+  {
+    "path": "templates/index.html",
+    "sha256": "f8e4088f8bdcd669c1c83be7885bf547861d39516c7deb24208200ec08c9730b"
+  },
+  {
+    "path": "tests/test_app.py",
+    "sha256": "7372aa499d6fd33ae83ea30c61647582ea665db242061835d71c2cf882f3b1b4"
+  },
+  {
+    "path": "tests/test_camera.cjs",
+    "sha256": "ea8e6618b558b7088cf590973c3038e854601fcb7806cb96078369e86452af14"
+  },
+  {
+    "path": "tests/test_pwa.py",
+    "sha256": "78c9ec04fbb4e75baeda48cd34625583b9b39b5cb8efb39403f472ab267eb3c8"
+  }
+]
