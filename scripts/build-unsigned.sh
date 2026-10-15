@@ -23,7 +23,7 @@ xcodebuild -project CameraShell.xcodeproj -scheme CameraShell \
 app="$archive/Products/Applications/CameraShell.app"
 test -d "$app"
 plutil -lint "$app/Info.plist"
-lipo -verify_arch arm64 "$app/CameraShell"
+lipo "$app/CameraShell" -verify_arch arm64
 if [[ -e "$app/_CodeSignature" || -e "$app/embedded.mobileprovision" ]]; then
     echo "Unexpected signature or provisioning profile in unsigned product." >&2
     exit 1
